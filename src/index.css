@@ -250,7 +250,8 @@ Navbar
   }
 }
 
-@media (orientation: portrait) and (max-width:800px) {
+@media (orientation: portrait) and (max-width:800px),
+(orientation:landscape) and (max-width: 500px) {
   .navbar {
     background: rgba(255, 255, 253, 0.7);
     height: 20vh;
@@ -454,7 +455,8 @@ Cocktail
   margin-bottom: 0.5rem;
 }
 
-@media (orientation: portrait) and (max-width: 800px) {
+@media (orientation: portrait) and (max-width: 800px),
+(orientation:landscape) and (max-width: 500px) {
 
 
   .section-title {
@@ -607,7 +609,8 @@ Form
   text-align: center;
 }
 
-@media(orientation: portrait) and (max-width: 800px) {
+@media (orientation: portrait) and (max-width: 800px),
+(orientation:landscape) and (max-width: 500px) {
 
   .search-form {
     width: 100vw;
@@ -719,7 +722,8 @@ Cocktail
   padding: 10px 20px;
 }
 
-@media(orientation: portrait) and (max-width: 800px) {
+@media(orientation: portrait) and (max-width: 800px),
+(orientation:landscape) and (max-width: 500px) {
   .cocktail-section {
     text-align: center;
     margin-top: 10vh;

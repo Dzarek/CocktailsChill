@@ -5,9 +5,9 @@ const SearchForm = () => {
   const { setSearchTerm } = useGlobalContext();
   const searchValue = React.useRef("");
 
-  React.useEffect(() => {
-    searchValue.current.focus();
-  }, []);
+  // React.useEffect(() => {
+  //   searchValue.current.focus();
+  // }, []);
 
   const searchCocktail = () => {
     setSearchTerm(searchValue.current.value);
