@@ -6,28 +6,37 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("a");
+  const [searchTerm, setSearchTerm] = useState("");
   const [cocktails, setCocktails] = useState([]);
+  const [language, setLanguage] = useState("english");
 
   const fetchDrinks = useCallback(async () => {
     setLoading(true);
+
     try {
       const response = await fetch(`${url}${searchTerm}`);
       const data = await response.json();
       const { drinks } = data;
       if (drinks) {
         const newCocktails = drinks.map((item) => {
-          const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
-            item;
-          //more from data description and ingredients
+          const {
+            idDrink,
+            strDrink,
+            strCategory,
+            strDrinkThumb,
+            strAlcoholic,
+            strGlass,
+          } = item;
           return {
             id: idDrink,
             name: strDrink,
             image: strDrinkThumb,
             info: strAlcoholic,
             glass: strGlass,
+            category: strCategory,
           };
         });
+
         setCocktails(newCocktails);
       } else {
         setCocktails([]);
@@ -43,7 +52,15 @@ const AppProvider = ({ children }) => {
   }, [searchTerm, fetchDrinks]);
 
   return (
-    <AppContext.Provider value={{ loading, cocktails, setSearchTerm }}>
+    <AppContext.Provider
+      value={{
+        loading,
+        cocktails,
+        setSearchTerm,
+        language,
+        setLanguage,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

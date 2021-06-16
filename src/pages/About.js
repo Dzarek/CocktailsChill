@@ -1,7 +1,9 @@
 import React from "react";
 import SplitText from "react-pose-text";
+import { useGlobalContext } from "../context";
 
 const About = () => {
+  const { language } = useGlobalContext();
   const charPoses = {
     exit: { opacity: 0, y: 0 },
     enter: {
@@ -12,7 +14,11 @@ const About = () => {
   };
   return (
     <section className="section about-section">
-      <h1 className="section-title">about us</h1>
+      <h1 className="section-title">
+        {language === "english" && "About Us"}
+        {language === "germany" && "Über Uns"}
+        {language === "italy" && "Chi Siamo"}
+      </h1>
       <p
         style={{
           color: "white",

@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useGlobalContext } from "../context";
 
 const Cocktail = ({ image, name, id, info, glass }) => {
+  const { language } = useGlobalContext();
   return (
     <article className="cocktail">
       <div className="img-container">
@@ -12,7 +14,9 @@ const Cocktail = ({ image, name, id, info, glass }) => {
         <p>{info}</p>
         <h4>{glass}</h4>
         <Link to={`/cocktail/${id}`} className="btn btn-primary btn-details">
-          details
+          {language === "english" && "details"}
+          {language === "germany" && "einzelheiten"}
+          {language === "italy" && "dettagli"}
         </Link>
       </div>
     </article>
